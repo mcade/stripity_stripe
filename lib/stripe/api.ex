@@ -25,7 +25,7 @@ defmodule Stripe.API do
   """
   @spec json_library() :: module
   def json_library() do
-    Config.resolve(:json_library, Poison)
+    Config.resolve(:json_library)
   end
 
   def supervisor_children do
