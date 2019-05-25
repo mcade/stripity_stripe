@@ -66,7 +66,7 @@ defmodule Stripe.Mixfile do
       {:hackney, "~> 1.15"},
       {:inch_ex, "~> 0.5", only: [:dev, :test]},
       {:mox, "~> 0.4", only: :test},
-      {:poison, "~> 2.0 or ~> 3.0"},
+      {:poison, "~> 2.0 or ~> 3.0 or ~> 4.0"},
       {:uri_query, "~> 0.1.2"},
       {:exexec, "~> 0.1.0", only: :test}
     ]
