@@ -164,14 +164,7 @@ defmodule Stripe.Subscription do
   Delete a subscription.
 
   Takes the subscription `id` and an optional map of `params`.
-
-  ### Deprecated Usage
-
-  Passing a map with `at_period_end: true` to `Subscription.delete/2`
-  is deprecated.  Use `Subscription.update/2` with
-  `cancel_at_period_end: true` instead.
   """
-  @deprecated "Use Stripe.Subscription.update/2 with `cancel_at_period_end: true`"
   @spec delete(Stripe.id() | t, %{at_period_end: true}) :: {:ok, t} | {:error, Stripe.Error.t()}
   def delete(id, %{at_period_end: true}), do: update(id, %{cancel_at_period_end: true})
 
