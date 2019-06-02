@@ -177,7 +177,8 @@ defmodule Stripe.Subscription do
 
   @spec delete(Stripe.id() | t, Stripe.options()) :: {:ok, t} | {:error, Stripe.Error.t()}
   def delete(id, opts) when is_list(opts) do
-    new_request(opts)
+    new_request()
+    |> put_params(opts)
     |> put_endpoint(@plural_endpoint <> "/#{get_id!(id)}")
     |> put_method(:delete)
     |> make_request()
