@@ -175,10 +175,10 @@ defmodule Stripe.Subscription do
   @spec delete(Stripe.id() | t, %{at_period_end: true}) :: {:ok, t} | {:error, Stripe.Error.t()}
   def delete(id, %{at_period_end: true}), do: update(id, %{cancel_at_period_end: true})
 
-  @spec delete(Stripe.id() | t, Stripe.options()) :: {:ok, t} | {:error, Stripe.Error.t()}
-  def delete(id, opts) when is_list(opts) do
+  @spec delete(Stripe.id() | t, map()) :: {:ok, t} | {:error, Stripe.Error.t()}
+  def delete(id, params) when is_map(params) do
     new_request()
-    |> put_params(opts)
+    |> put_params(params)
     |> put_endpoint(@plural_endpoint <> "/#{get_id!(id)}")
     |> put_method(:delete)
     |> make_request()
